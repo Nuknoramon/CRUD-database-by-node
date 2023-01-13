@@ -1,9 +1,13 @@
-import TodoContent from './TodoContent';
+import TodoContent from "./TodoContent";
 
-function TodoItem() {
+function TodoItem({ todo, deleteTodo }) {
   return (
-    <li className="list-group-item p-3 callout-warning">
-      <TodoContent />
+    <li
+      className={`list-group-item p-3 callout-${
+        todo.completed ? "success" : "warning"
+      }`}
+    >
+      <TodoContent todo={todo} deleteTodo={deleteTodo} />
     </li>
   );
 }

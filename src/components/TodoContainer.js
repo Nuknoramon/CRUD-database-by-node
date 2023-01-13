@@ -1,12 +1,12 @@
-import { Fragment } from 'react';
-import PageLimit from './PageLimit';
-import SearchStatus from './SearchStatus';
-import SearchText from './SearchText';
-import Sort from './Sort';
-import TodoList from './TodoList';
-import Pagination from './Pagination';
+import { Fragment } from "react";
+import PageLimit from "./PageLimit";
+import SearchStatus from "./SearchStatus";
+import SearchText from "./SearchText";
+import Sort from "./Sort";
+import TodoList from "./TodoList";
+import Pagination from "./Pagination";
 
-function TodoContainer() {
+function TodoContainer({ todos, deleteTodo }) {
   return (
     <Fragment>
       <div className="my-2 d-flex gap-3">
@@ -17,7 +17,7 @@ function TodoContainer() {
         <PageLimit />
         <Sort />
       </div>
-      <TodoList />
+      <TodoList todos={todos} deleteTodo={deleteTodo} />
       <div className="my-2 d-flex justify-content-between align-items-center">
         <small className="text-muted">Showing 6 to 10 of 12 entries</small>
         <Pagination />

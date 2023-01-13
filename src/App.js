@@ -1,14 +1,28 @@
-import TodoContainer from './components/TodoContainer';
-import TodoForm from './components/TodoForm';
+import { Route, Routes } from "react-router-dom";
+
+import RegisterPage from "./pages/Register";
+import LoginPage from "./pages/Login";
+import HomePage from "./pages/Home";
+import Header from "./components/Header";
+import { useAuth } from "./contexts/AuthContext";
 
 function App() {
+  const ctx = useAuth();
   return (
-    <div className="container mt-5 mb-3" style={{ maxWidth: 576 }}>
-      <div className="my-4">
-        <TodoForm />
-      </div>
-      <TodoContainer />
-    </div>
+    <>
+      <Header />
+      <Routes>
+        {ctx.isLogged ? (
+          <Route path="/" element={<HomePage />} />
+        ) : (
+          <>
+            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/login" element={<LoginPage />} />
+          </>
+        )}
+        <Route path="*" element={<h1>404 !!! Not Found</h1>} />
+      </Routes>
+    </>
   );
 }
 

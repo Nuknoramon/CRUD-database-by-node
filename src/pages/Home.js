@@ -32,7 +32,7 @@ function Home() {
       );
       setTodos([res.data.todo, ...todos]);
     } catch (err) {
-      alert("Error create todo");
+      alert("Error createTodo");
     }
   };
 
@@ -43,7 +43,7 @@ function Home() {
       });
       setTodos(todos.filter((item) => item.id !== id));
     } catch (err) {
-      alert("Error delete todo");
+      alert("Error deleteTodo");
     }
   };
   return (
